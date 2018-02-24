@@ -5,5 +5,9 @@
   "main": "soulify.js",
   "repository": "git@github.com:JosteinKringlen/soulify.git",
   "author": "André Mossige <mossige.a@gmail.com> & Jostein Kringlen <josteinkringlen@gmail.com>",
-  "license": "GPLv3"
+  "license": "GPLv3",
+  "dependencies": {
+    "slsk-client": "^1.0.4",
+    "spotify-web-api-js": "^0.23.0"
+  }
 }
