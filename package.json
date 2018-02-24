@@ -1,0 +1,9 @@
+{
+  "name": "soulify",
+  "version": "1.0.0",
+  "description": "Connecting Spotify with Soulseek",
+  "main": "soulify.js",
+  "repository": "git@github.com:JosteinKringlen/soulify.git",
+  "author": "André Mossige <mossige.a@gmail.com> & Jostein Kringlen <josteinkringlen@gmail.com>",
+  "license": "GPLv3"
+}
