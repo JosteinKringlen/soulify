@@ -1,29 +1,28 @@
 const Spotify = require('spotify-web-api-js');
 const process = require('process');
-const fetch = require('node-fetch');
-const btoa = require('btoa');
+const request = require('request');
 
-getAccessToken()
+// TODO: Set token
+const token = getAccessToken((token) => console.log(token));
 
-function getAccessToken() {
-  const clientId = process.env.SOULIFY_CLIENT_ID;
-  const clientSecret = process.env.SOULIFY_CLIENT_SECRET;
-  const spotifyAuthUrl = 'https://accounts.spotify.com/api/token';
+function getAccessToken(callback) {
+  const client_id = process.env.SOULIFY_CLIENT_ID;
+  const client_secret = process.env.SOULIFY_CLIENT_SECRET;
 
-  const bla = clientId + ':' + clientSecret;
-  const base64Creds = btoa(bla)
-  const auth = 'Basic ' + base64Creds;
-
-  const content = {
-    method: 'POST',
-    body: JSON.stringify({grant_type: 'client_credentials'}),
+  var authOptions = {
+    url: 'https://accounts.spotify.com/api/token',
     headers: {
-      'Authorization': auth
-    }
+      'Authorization': 'Basic ' + new Buffer(client_id + ':' + client_secret).toString('base64')
+    },
+    form: {
+      grant_type: 'client_credentials'
+    },
+    json: true
   };
 
-  fetch(spotifyAuthUrl, content)
-    .then(res => res())
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+  return request.post(authOptions, (error, response, body) => {
+    if (!error && response.statusCode === 200) {
+      callback(body.access_token);
+    }
+  });
 }

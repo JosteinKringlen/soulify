@@ -7,8 +7,7 @@
   "author": "André Mossige <mossige.a@gmail.com> & Jostein Kringlen <josteinkringlen@gmail.com>",
   "license": "GPLv3",
   "dependencies": {
-    "btoa": "^1.1.2",
-    "node-fetch": "^2.0.0",
+    "request": "^2.83.0",
     "slsk-client": "^1.0.4",
     "spotify-web-api-js": "^0.23.0"
   }
