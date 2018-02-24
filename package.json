@@ -7,6 +7,7 @@
   "author": "André Mossige <mossige.a@gmail.com> & Jostein Kringlen <josteinkringlen@gmail.com>",
   "license": "GPLv3",
   "dependencies": {
+    "process": "^0.11.10",
     "slsk-client": "^1.0.4",
     "spotify-web-api-js": "^0.23.0"
   }
