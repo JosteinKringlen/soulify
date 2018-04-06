@@ -1,6 +1,9 @@
 const slsk = require('slsk-client');
 const process = require('process');
 let playlistsToDownload = require('../playlists');
+const fs = require('fs');
+const {URL} = require('url');
+const playlistURL = new URL('file://../playlist.json');
 let clientGlobal;
 
 slsk.connect({
@@ -48,5 +51,18 @@ function downloadSong(songToDownload, name, playListIndex, songIndex) {
     },(err, data) => {
         if (err) console.log('Error:\n' + err);
         console.log(data);
+
+        fs.readFile(__dirname  + '/../playlists.json' ,'utf-8', (err, file) => {
+            if (err) throw err;
+
+            let stuff = JSON.parse(file);
+            stuff.playlists[playListIndex].elements[songIndex].downloaded = true;
+            console.log(stuff.playlists[playListIndex].elements[songIndex].downloaded);
+
+            fs.writeFile(__dirname+ '/../playlists.json', JSON.stringify(stuff),'utf-8', err => {
+                if (err) throw err;
+                console.log("Written to true")
+            })
+        })
     });
 }

@@ -60,3 +60,5 @@ typings/
 playlists.json
 *.mp3
 .idea
+*.aiff
+*.flac
