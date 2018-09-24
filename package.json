@@ -7,12 +7,20 @@
   "author": "André Mossige <mossige.a@gmail.com> & Jostein Kringlen <josteinkringlen@gmail.com>",
   "license": "GPLv3",
   "dependencies": {
-    "request": "^2.83.0",
+    "inquirer": "^6.2.0",
+    "keypress": "^0.2.1",
     "process": "^0.11.10",
+    "q": "^1.5.1",
+    "request": "^2.83.0",
     "slsk-client": "^1.0.4",
-    "spotify-web-api-js": "^0.23.0"
+    "spotify-web-api-js": "^0.23.0",
+    "spotify-web-api-node": "^3.1.1"
   },
   "scripts": {
-    "start": "node src/soulify.js"
+    "start": "node src/soulify.js",
+    "export": "node src/exportPlaylist.js"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "^3.2.0"
   }
 }
